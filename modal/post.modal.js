@@ -12,6 +12,16 @@ const postSchema = mongoosh.Schema({
         type: mongoosh.Schema.Types.ObjectId,
         ref: "Users",
     },
+    like:{
+        type:Array,
+        default:[]
+    },
+    comment:{
+        type:Array,
+        default:[]
+        
+    }
+
 },{timestamps:true})
 
 const Post = mongoosh.model("Post", postSchema)

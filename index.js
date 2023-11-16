@@ -47,15 +47,14 @@ app.use("/user", varifyToken)
 
 // upload a post 
 app.post('/upload', upload.single("file"), async (req, res) => {
-  const postText = req.body.text
   const file = req.file.filename
-  // console.log(req.file)
   try {
-    const result = await Post.create({ text: postText, postImg: file, user: req.body.user })
-    res.status(200).json({
-      success: true,
-      result
-    })
+    res.send(file)
+    // const result = await Post.create({ text: postText, postImg: file, user: req.body.user })
+    // res.status(200).json({
+    //   success: true,
+    //   result
+    // })
   } catch (error) {
     res.status(400).json({
       success: false,
@@ -83,6 +82,7 @@ app.patch("/profile/:id", upload.single("file"), async (req, res) => {
     })
   }
 })
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

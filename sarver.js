@@ -4,9 +4,13 @@ const dotenv = require('dotenv').config();
 const app = require('./index');
 const server = require('./index');
 
-mongoose.connect(process.env.db).then(() =>{
-    console.log(`DataBase connect successfully`)
-})
+
+const dbconnect=async()=>{
+    await mongoose.connect(process.env.db).then(() =>{
+        console.log(`DataBase connect successfully`)
+    })
+}
+dbconnect()
 
 // sarver
 const port = process.env.PORT || 5000 ;

@@ -22,8 +22,19 @@ const userSchema = mongoosh.Schema({
     bio:{
         type:String,
         default:"write your bio"
+    },
+    location:{
+        type:String
+    },
+    city:{
+        type:String
+    },
+    relation:{
+        type:String,
+        enum:["married" ,"Singel","cenapred"],
+        default:"Singel"
     }
-})
+},{timestamps:true})
 
 const User = mongoosh.model("Users" , userSchema)
 

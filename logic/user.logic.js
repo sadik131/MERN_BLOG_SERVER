@@ -9,6 +9,7 @@ exports.register = async (user) => {
 
 // edit user profile
 exports.edit = async (doc) =>{
+    console.log(doc)
     const result = await User.updateOne({ _id: doc.id }, doc, { new: true })
     return result
 }
